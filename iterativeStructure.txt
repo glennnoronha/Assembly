@@ -1,0 +1,23 @@
+.global main
+
+.text
+main:
+   mov   r4, #1   //index i = 1
+   ldr   r5, =ni
+   ldr   r5, [r5] //n = 11
+loop:
+   cmp   r4, r5   //i == n
+   beq   done
+   ldr   r0, =outstr
+   mov   r1, r4
+   bl    printf
+   add   r4, r4, #1 //i++
+   b     loop
+done:
+   ldr   r0, =newline
+   bl    printf
+   b     exit         //HALT
+.data
+   outstr:   .asciz   "%d "
+   newline:  .asciz   "\n"
+   n:        .word    11                                                                   

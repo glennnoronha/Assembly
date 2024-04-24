@@ -1,0 +1,18 @@
+//integer division
+// use C library helper function
+// __aeabi_idiv
+
+.global main
+
+.text
+main:
+   mov   r0, #14
+   mov   r1, #3
+   bl    __aeabi_idiv   //r0 = r0/r1
+   mov   r1, r0
+   ldr   r0, =outstr                                                                      
+   bl    printf                                                                           
+   b     exit
+
+.data                                                                                     
+   outstr:   .asciz   "%d\n"                                 
